@@ -1,5 +1,5 @@
 """
-Custom Django command to fix race condition of DB 
+Custom Django command to fix race condition of DB
 and connect to DB after DB has started.
 """
 import time
