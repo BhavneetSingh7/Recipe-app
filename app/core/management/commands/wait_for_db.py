@@ -1,5 +1,6 @@
 """
-Custom Django command to fix race condition of DB and connect to DB after DB has started
+Custom Django command to fix race condition of DB 
+and connect to DB after DB has started.
 """
 import time
 from psycopg2 import OperationalError as Psycopg2Error
@@ -22,5 +23,5 @@ class Command(BaseCommand):
             except (Psycopg2Error, OperationalError):
                 self.stdout.write('Database unavailable, waiting 1 second')
                 time.sleep(1)
-        
+
         self.stdout.write(self.style.SUCCESS('Database available!'))
