@@ -7,10 +7,8 @@ from django.utils.translation import gettext as _
 from rest_framework import serializers
 
 
-
 class UserSerializer(serializers.ModelSerializer):
     """Serializer for user objects"""
-
 
     class Meta:
         model = get_user_model()
@@ -36,7 +34,6 @@ class UserSerializer(serializers.ModelSerializer):
             user.save()
 
         return user
-
 
 
 class AuthTokenSerializer(serializers.Serializer):
