@@ -8,7 +8,7 @@ from rest_framework import serializers
 
 
 
-class UserSerializers(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     """Serializer for user objects"""
 
 
@@ -29,7 +29,7 @@ class UserSerializers(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         """Update and return user"""
         password = validated_data.pop('password', None)
-        user = super().update(instance=instance, validated_data=validated_data)
+        user = super().update(instance, validated_data)
 
         if password:
             user.set_password(password)
